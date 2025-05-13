@@ -1,0 +1,101 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font yang lebih modern */
+    background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Gradien latar belakang */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Mencegah scroll jika gradien melebihi layar */
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Latar belakang putih semi-transparan */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Bayangan yang lebih halus */
+    width: 350px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 500;
+    font-size: 2.2em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 22px); /* Mengurangi sedikit agar tidak terlalu mepet */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease; /* Efek transisi hover */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.error {
+    color: #dc3545;
+}
+
+.success {
+    color: #28a745;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon input {
+    padding-left: 35px; /* Ruang untuk ikon */
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+}
