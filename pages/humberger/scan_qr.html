@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner QR Code</title>
+    <link rel="stylesheet" href="Css/style_scanner.css">
+    <link rel="stylesheet" href="../style_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <script src="script/html5-qrcode.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">Admin Panel</div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="../dashboard_admin.html">Dashboard</a></li>
+                    <li><a href="Absensi_harian.html">Absensi Harian</a></li>
+                    <li><a href="#">Absensi Bulanan</a></li>
+                    <li><a href="#">Absensi Tahunan</a></li>
+                    <li><a href="Buat_Qr.html">Buat QR Code</a></li>
+                    <li><a href="Tambah_data_siswa.html">Tambah Data Siswa</a></li>
+                    <li><a href="scan_qr.html" class="active">Scan QR</a></li>
+                    <li><a href="../dashboard_admin.html" onclick="logout()">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header>
+                <button class="hamburger" id="hamburger">☰</button>
+                <h1 id="adminName">Selamat Datang, Admin!</h1>
+            </header>
+            <section class="content">
+                <div class="scanner-container">
+                   <div id="preview" style="width: 300px; height: 300px;"></div>
+                </div>
+                <div class="card">
+                    <h2>Absensi Sementara</h2>
+<div id="preview" style="width: 300px; margin: auto;"></div>
+<div id="statusBox" class="statusBox"></div>
+
+<table id="absensiTable" border="1" style="margin-top: 20px; width: 100%;">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>NISN</th>
+            <th>Kelas</th>
+            <th>Status</th>
+            <th>Waktu</th>
+            <th>Hapus</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<button id="submitAbsensi">Submit Absensi</button>
+
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script/Scanner.js"></script>
+    <script src="../script_dashboard.js"></script>
+    </body>
+</html>

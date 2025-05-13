@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Data Siswa</title>
+    <link rel="stylesheet" href="../style_dashboard.css">
+    <link rel="stylesheet" href="Css/style_tambah_siswa.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">Admin Panel</div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="../dashboard_admin.html">Dashboard</a></li>
+                    <li><a href="Absensi_harian.html">Absensi Harian</a></li>
+                    <li><a href="#">Absensi Bulanan</a></li>
+                    <li><a href="#">Absensi Tahunan</a></li>
+                    <li><a href="Buat_Qr.html">Buat QR Code</a></li>
+                    <li><a href="Tambah_data_siswa.html" class="active">Tambah Data Siswa</a></li>
+                     <li><a href="scan_qr.html">Scann Siswa</a></li>
+                    <li><a href="../dashboard_admin.html" onclick="logout()">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header>
+                <button class="hamburger" id="hamburger">
+                    ☰
+                </button>
+                <!-- <h1></h1> -->
+            </header>
+            <section class="content">
+                <div class="card">
+                    <form id="formTambahSiswa">
+                        <div class="form-group">
+                            <label for="nama">Nama Siswa:</label>
+                            <input type="text" id="nama" name="nama" placeholder="Masukkan nama siswa" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nisn">NISN:</label>
+                            <input type="text" id="nisn" name="nisn" placeholder="Masukkan NISN siswa" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="kelas">Kelas:</label>
+                            <input type="text" id="kelas" name="kelas" placeholder="Masukkan kelas siswa" required>
+                        </div>
+                        <button type="submit" class="btn-submit">Simpan</button>
+                    </form>
+                </div>
+                <div class="card">
+                    <h3>QR Code Siswa</h3>
+                    <!-- <div id="qrCodeContainer"></div> -->
+                </div>
+            </section>
+            <footer>
+                <p>&copy; 2025 Sistem Absensi Sekolah</p>
+            </footer>
+        </main>
+    </div>
+    <script src="../script_dashboard.js"></script>
+    <script>
+        document.getElementById('formTambahSiswa').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Mencegah reload halaman
+
+            const nama = document.getElementById('nama').value;
+            const nisn = document.getElementById('nisn').value;
+            const kelas = document.getElementById('kelas').value;
+
+            const data = {
+                nama: nama,
+                nisn: nisn,
+                kelas: kelas
+            };
+
+            try {
+                const response = await fetch('http://localhost:5000/api/tambah-siswa', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    alert('Data siswa berhasil disimpan!');
+                    document.getElementById('formTambahSiswa').reset(); // Reset form setelah berhasil
+                } else {
+                    alert('Gagal menyimpan data siswa.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat menyimpan data.');
+            }
+        });
+
+        function logout() {
+            fetch('http://localhost:5000/logout')
+                .then(() => {
+                    window.location.href = '/Admin_guru/Login_admin.html'; // Redirect ke halaman login
+                })
+                .catch(err => console.error('Error:', err));
+        }
+    </script>
+</body>
+</html>

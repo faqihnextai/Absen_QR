@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buat QR Code</title>
+    <link rel="stylesheet" href="../style_dashboard.css">
+    
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">Admin Panel</div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="../dashboard_admin.html">Dashboard</a></li>
+                    <li><a href="Absensi_harian.html">Absensi Harian</a></li>
+                    <li><a href="#">Absensi Bulanan</a></li>
+                    <li><a href="#">Absensi Tahunan</a></li>
+                    <li><a href="Buat_Qr.html" class="active">Buat QR Code</a></li>
+                    <li><a href="Tambah_data_siswa.html">Tambah Data Siswa</a></li>
+                     <li><a href="scan_qr.html">Scann Siswa</a></li>
+                    <li><a href="admin_guru/dashboard_admin.html" onclick="logout()">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header>
+                <button class="hamburger" id="hamburger">
+                    ☰
+                </button>
+                <h1>Buat QR Code</h1>
+            </header>
+            <section class="content">
+                <div class="card">
+                    <h3>QR Code Siswa</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Siswa</th>
+                                <th>QR Code</th>
+                                <th>Download</th>
+                            </tr>
+                        </thead>
+                        <tbody id="qrTableBody">
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <footer>
+                <p>&copy; 2025 Sistem Absensi Sekolah</p>
+            </footer>
+        </main>
+    </div>
+    <script src="script/script_qr.js"></script>
+    
+</body>
+</html>

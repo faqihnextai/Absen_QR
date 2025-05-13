@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absensi Harian</title>
+    <link rel="stylesheet" href="../style_dashboard.css">
+    <link rel="stylesheet" href="Css/style_absenharian.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">Admin Panel</div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="../dashboard_admin.html">Dashboard</a></li>
+                    <li><a href="Absensi_harian.html" class="active">Absensi Harian</a></li>
+                    <li><a href="#">Absensi Bulanan</a></li>
+                    <li><a href="#">Absensi Tahunan</a></li>
+                    <li><a href="Buat_Qr.html">Buat QR Code</a></li>
+                    <li><a href="Tambah_data_siswa.html">Tambah Data Siswa</a></li>
+                    <li><a href="scan_qr.html">Scann Siswa</a></li>
+                    <li><a href="../Login_admin.html" onclick="logout()">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header>
+                <button class="hamburger" id="hamburger">
+                    ☰
+                </button>
+                <h1>Absensi Harian</h1>
+            </header>
+            <section class="content">
+                <div class="card">
+                    <h3>Siswa yang Sudah Scan</h3>
+                    <table id="sudahScanTable">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Status</th>
+                                <th>Waktu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data siswa yang sudah scan akan dimasukkan di sini oleh JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card">
+                    <h3>Siswa yang Belum Scan</h3>
+                    <table id="belumScanTable">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data siswa yang belum scan akan dimasukkan di sini oleh JavaScript -->
+                        </tbody>
+                    </table>
+                    <button id="submitAbsensiOrtu">Submit ke Orang Tua</button>
+                </div>
+            </section>
+            <footer>
+                <p>&copy; 2025 Sistem Absensi Sekolah</p>
+            </footer>
+        </main>
+    </div>
+    <script src="script/script_asbsen_harian.js"></script>
+    <script>
+        function logout() {
+            fetch('http://localhost:5000/logout', { method: 'POST' })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.href = '/Admin_guru/Login_admin.html';
+                    } else {
+                        console.error('Gagal logout');
+                    }
+                })
+                .catch(err => console.error('Error:', err));
+        }
+    </script>
+</body>
+</html>
