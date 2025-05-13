@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     try {
         // Ambil data siswa dari API
-        const response = await fetch('http://127.0.0.1:5000/api/siswa/qrcode', {
+        const response = await fetch('http://127.0.0.1:6000/api/siswa/qrcode', {
             credentials: 'include'  // Pastikan cookie dikirim
         });
         if (!response.ok) {
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
                 // QR Code
                 const qrImg = document.createElement('img');
-                qrImg.src = `http://127.0.0.1:5000${student.qr_code_url}`;
+                qrImg.src = `http://127.0.0.1:6000${student.qr_code_url}`;
                 qrImg.alt = `QR Code ${student.nama}`;
                 qrImg.width = 100;
                 qrImg.height = 100;
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 // Tombol Download
                 const downloadLink = document.createElement('a');
                 downloadLink.textContent = 'Download';
-                downloadLink.href = `http://127.0.0.1:5000${student.qr_code_url}`;
+                downloadLink.href = `http://127.0.0.1:6000${student.qr_code_url}`;
                 downloadLink.download = `${student.nama}_QR.png`;
                 downloadCell.appendChild(downloadLink);
             });
