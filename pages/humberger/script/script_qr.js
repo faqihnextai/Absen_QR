@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
                 // QR Code
                 const qrImg = document.createElement('img');
-                qrImg.src = `http://127.0.0.1:6000${student.qr_code_url}`;
+                qrImg.src = `httpS://faqih.pythonanywhere.com${student.qr_code_url}`;
                 qrImg.alt = `QR Code ${student.nama}`;
                 qrImg.width = 100;
                 qrImg.height = 100;
