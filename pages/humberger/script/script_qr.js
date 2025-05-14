@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     try {
         // Ambil data siswa dari API
-        const response = await fetch('http://faqih.pythonanywhere.com/api/siswa/qrcode', {
+        const response = await fetch('https://faqih.pythonanywhere.com/api/siswa/qrcode', {
             credentials: 'include'  // Pastikan cookie dikirim
         });
         if (!response.ok) {
