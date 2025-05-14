@@ -7,7 +7,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     const data = { username, password };
 
     try {
-        const response = await fetch('http://faqih.pythonanywhere.com/login', { // Ganti ke http://127.0.0.1:6000
+        const response = await fetch('https://faqih.pythonanywhere.com/login', { // Ganti ke http://127.0.0.1:6000
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
