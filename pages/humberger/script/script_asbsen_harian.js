@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Ambil data siswa yang sudah scan
    async function fetchSudahScan() {
     try {
-        const response = await fetch('http://127.0.0.1:6000/api/absensi-sudah-scan', {
+        const response = await fetch('https://faqih.pythonanywhere.com/api/absensi-sudah-scan', {
             method: 'GET',
             credentials: 'include' // Pastikan cookie dikirim
         });
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Ambil data siswa yang belum scan
     async function fetchBelumScan() {
         try {
-            const response = await fetch('http://127.0.0.1:6000/api/absensi-belum-scan', {
+            const response = await fetch('https://faqih.pythonanywhere.com/api/absensi-belum-scan', {
                 method: 'GET',
                 credentials: 'include' // Pastikan cookie dikirim
             });
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             return { nama, status, tanggal: today };
         });
 
-        const response = await fetch('http://127.0.0.1:6000/api/submit-absensi-ortu', {
+        const response = await fetch('https://faqih.pythonanywhere.com/api/submit-absensi-ortu', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',  // Pastikan cookie dikirim
