@@ -26,7 +26,7 @@ document.getElementById('formTambahSiswa').addEventListener('submit', async func
 
             // Tampilkan QR Code
             const qrCodeContainer = document.getElementById('qrCodeContainer');
-            qrCodeContainer.innerHTML = `<img src="https://faqih.pythonanywhere.com:6000${result.qr_code}" alt="QR Code Siswa">`;
+            qrCodeContainer.innerHTML = `<img src="https://faqih.pythonanywhere.com${result.qr_code}" alt="QR Code Siswa">`;
 
             document.getElementById('formTambahSiswa').reset(); // Reset form setelah berhasil
         } else {
